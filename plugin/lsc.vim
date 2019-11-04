@@ -16,6 +16,9 @@ endif
 if !exists('g:lsc_enable_snippet_support')
   let g:lsc_enable_snippet_support = v:false
 endif
+if !exists('g:lsc_mute_notifications')
+  let g:lsc_mute_notifications = v:true
+endif
 
 command! LSClientGoToDefinitionSplit
     \ call lsc#reference#goToDefinition(<q-mods>, 1)

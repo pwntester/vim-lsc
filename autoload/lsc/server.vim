@@ -328,6 +328,8 @@ function! s:Dispatch(server, method, params, id) abort
     call a:server.respond(a:id, l:response)
   elseif a:method =~? '\v^\$'
     call lsc#config#handleNotification(a:server, a:method, a:params)
+  elseif g:lsc_mute_notifications
+      return
   else
     echom 'Got notification: ' . a:method .
         \ ' params: ' . string(a:params)
